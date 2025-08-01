@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+    background: linear-gradient(135deg, #2a0845 0%, #6441a5 100%);
     font-family: 'Montserrat', Arial, sans-serif;
     color: #fff;
     margin: 0;
@@ -10,9 +10,9 @@ body {
     max-width: 600px;
     margin: 40px auto;
     padding: 24px;
-    background: rgba(20, 20, 30, 0.85);
+    background: rgba(40, 20, 60, 0.85);
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 32px rgba(100,65,165,0.25);
 }
 
 .title {
@@ -20,7 +20,7 @@ body {
     font-size: 2.2rem;
     margin-bottom: 32px;
     letter-spacing: 2px;
-    color: #3a7bd5;
+    color: #a259ff;
 }
 
 .cards {
@@ -34,12 +34,12 @@ body {
     display: flex;
     align-items: center;
     gap: 18px;
-    background: #1a1a2e;
+    background: #2d1856;
     border-radius: 14px;
     padding: 18px 28px;
     text-decoration: none;
     color: #fff;
-    box-shadow: 0 2px 12px rgba(58,123,213,0.08);
+    box-shadow: 0 2px 12px rgba(162,89,255,0.08);
     transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
     font-size: 1.1rem;
     min-width: 220px;
@@ -48,13 +48,13 @@ body {
 
 .card:hover {
     transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 6px 24px rgba(58,123,213,0.18);
-    background: #23234b;
+    box-shadow: 0 6px 24px rgba(162,89,255,0.18);
+    background: #3d2170;
 }
 
 .card span[class^="icon-"] {
     font-size: 2.2rem;
-    color: #3a7bd5;
+    color: #a259ff;
     transition: color 0.18s;
 }
 
@@ -63,7 +63,16 @@ body {
 .card.discord span[class^="icon-"] { color: #7289da; }
 .card.twitch span[class^="icon-"] { color: #9147ff; }
 .card.youtube span[class^="icon-"] { color: #ff0000; }
-.card.playstation span[class^="icon-"] { color: #3a7bd5; }
+.card.playstation span[class^="icon-"] { color: #a259ff; }
+
+.card-logo {
+    width: 2.2rem;
+    height: 2.2rem;
+    object-fit: contain;
+    margin-right: 12px;
+    filter: drop-shadow(0 2px 8px rgba(162,89,255,0.12));
+    vertical-align: middle;
+}
 
 .card-name {
     font-weight: 500;
@@ -84,8 +93,8 @@ body {
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid #3a7bd5;
-    box-shadow: 0 4px 16px rgba(58,123,213,0.15);
+    border: 4px solid #a259ff;
+    box-shadow: 0 4px 16px rgba(162,89,255,0.15);
     margin-bottom: 16px;
 }
 
@@ -95,7 +104,7 @@ body {
     color: #fff;
     margin-bottom: 8px;
     letter-spacing: 2px;
-    text-shadow: 0 2px 8px rgba(58,123,213,0.12);
+    text-shadow: 0 2px 8px rgba(162,89,255,0.12);
 }
 
 .profile-desc {
@@ -104,6 +113,120 @@ body {
     margin-bottom: 0;
     text-align: center;
     max-width: 340px;
+}
+
+/* Fondo de iconos PlayStation */
+.ps-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ps-bg span {
+    position: absolute;
+    opacity: 0.13;
+    --icons: #a259ff;
+    --background: transparent;
+}
+
+.ps-bg .triangle { left: 5vw; top: 10vh; }
+.ps-bg .circle   { left: 20vw; top: 25vh; }
+.ps-bg .cross    { left: 40vw; top: 5vh; }
+.ps-bg .square   { left: 60vw; top: 30vh; }
+.ps-bg .triangle:nth-of-type(5) { left: 80vw; top: 60vh; }
+.ps-bg .circle:nth-of-type(6)   { left: 10vw; top: 70vh; }
+.ps-bg .cross:nth-of-type(7)    { left: 50vw; top: 80vh; }
+.ps-bg .square:nth-of-type(8)   { left: 70vw; top: 50vh; }
+.ps-bg .triangle:nth-of-type(9) { left: 30vw; top: 60vh; }
+.ps-bg .circle:nth-of-type(10)  { left: 85vw; top: 20vh; }
+.ps-bg .cross:nth-of-type(11)   { left: 15vw; top: 40vh; }
+.ps-bg .square:nth-of-type(12)  { left: 90vw; top: 80vh; }
+.ps-bg .triangle:nth-of-type(13){ left: 60vw; top: 10vh; }
+.ps-bg .circle:nth-of-type(14)  { left: 35vw; top: 75vh; }
+.ps-bg .cross:nth-of-type(15)   { left: 75vw; top: 35vh; }
+.ps-bg .square:nth-of-type(16)  { left: 25vw; top: 55vh; }
+
+.ps-bg .triangle,
+.ps-bg .square,
+.ps-bg .circle,
+.ps-bg .cross {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+}
+
+.ps-bg .triangle {
+    transform-origin: 50% 60%;
+}
+.ps-bg .triangle:before,
+.ps-bg .triangle:after {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    height: 0;
+    width: 0;
+    border: 30px solid transparent;
+    border-bottom: 52px solid var(--icons);
+    transform: scale(1);
+}
+.ps-bg .triangle:after {
+    bottom: -8px;
+    transform: scale(0.65);
+    border-bottom-color: var(--background);
+}
+
+.ps-bg .circle {
+    border-radius: 30px;
+    border: 8px solid var(--icons);
+    box-sizing: border-box;
+}
+
+.ps-bg .cross:before,
+.ps-bg .cross:after {
+    content: "";
+    position: absolute;
+    top: 26px;
+    height: 8px;
+    width: 100%;
+    background: var(--icons);
+    transform: scale(1.2) rotate(-45deg);
+}
+.ps-bg .cross:after {
+    transform: scale(1.2) rotate(45deg);
+}
+
+.ps-bg .square {
+    border: 8px solid var(--icons);
+    box-sizing: border-box;
+}
+
+/* Asegura que el contenido principal esté por encima */
+body > *:not(.ps-bg) {
+    position: relative;
+    z-index: 1;
+}
+
+.ps-bg [data-animate='true'] {
+    animation: spin 1.2s;
+}
+
+@keyframes spin {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    50% {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
 }
 
 @media (max-width: 700px) {
